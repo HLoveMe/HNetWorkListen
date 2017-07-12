@@ -7,7 +7,7 @@
 //
 
 #import "URLConnectProxy.h"
-#import "Header.h"
+#import "RRHeader.h"
 @interface URLConnectProxy()
 @property(nonatomic,strong)id _delegate;
 @end
@@ -25,15 +25,17 @@
         self.info.start = CFAbsoluteTimeGetCurrent();
     }else if([name isEqualToString:@"connection:willSendRequestForAuthenticationChallenge:"]){
         self.info.is_ssl=YES;
-        self.info.SSL = CFAbsoluteTimeGetCurrent()-self.info.start;
+        self.info.ssl_start = CFAbsoluteTimeGetCurrent()-self.info.start;
     }else if([name isEqualToString:@"send_body_data"]){
         //POST 发送body 时间
     }else if ([name isEqualToString:@"connection:didReceiveResponse:"]){
         self.info.receive_response = CFAbsoluteTimeGetCurrent()-self.info.start;
     }else if ([name isEqualToString:@"connection:didReceiveData:"]){
-        if (self.info.receive_data==0) {
-            self.info.receive_data = CFAbsoluteTimeGetCurrent()-self.info.start;
+        if (self.info.receive_data_first==0) {
+            self.info.receive_data_first = CFAbsoluteTimeGetCurrent()-self.info.start;
         }
+        self.info.receive_data_end = CFAbsoluteTimeGetCurrent()-self.info.start;
+        
         @try {
             //54627
             typeof(NSClassFromString(@"OS_dispatch_data")) data;
@@ -49,6 +51,10 @@
         self.info.finish = CFAbsoluteTimeGetCurrent()-self.info.start;
         self.info.start=0;
         self.info.success = NO;
+        typeof(NSClassFromString(@"NSURLError")) err;
+        [invocation getArgument:&err atIndex:3];
+        NSLog(@"%@",[(NSError *)err class]);
+        self.info.errorReason= [(NSError *)err description];
         NSLog(@"%@",self.info);
         [[RRNetWorkManager shareWorkManager] hasFinish:self.task];
     }else if([name isEqualToString:@"connectionDidFinishLoading:"]){

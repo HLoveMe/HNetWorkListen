@@ -8,7 +8,7 @@
 
 #import "DNSLookUp.h"
 #include <dlfcn.h>
-#import "Header.h"
+#import "RRHeader.h"
 
 static int (*orig_gethostbyname)(const char *);
 
@@ -75,15 +75,18 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
 @implementation DNSLookUp
 
 +(void)rebind{
+#ifdef __IPHONE_9_3
     static dispatch_once_t rebind;
     dispatch_once(&rebind, ^{
         void *lib = dlopen("/usr/lib/system/libsystem_dnssd.dylib", RTLD_NOW);
         orig_DNSServiceGetAddrInfo = dlsym(lib, "DNSServiceGetAddrInfo");
-        NSLog(@"%@",[NSThread currentThread]);
-        rebind_symbols((struct rebinding[2]){{"gethostbyname",my_gethostbyname,(void *)&orig_gethostbyname},{"DNSServiceGetAddrInfo",my_DNSServiceGetAddrInfo}}, 2);
-        
+        rebind_symbols((struct rebinding[1]){{"DNSServiceGetAddrInfo",my_DNSServiceGetAddrInfo}}, 1);
         dlclose(lib);
     });
+#else
+    rebind_symbols((struct rebinding[1]){{"gethostbyname",my_gethostbyname,(void *)&orig_gethostbyname}}, 1);
+    
+#endif
 }
 @end
 

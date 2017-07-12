@@ -83,7 +83,7 @@
 		DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRNetWorkManager.m; sourceTree = "<group>"; };
 		DB8A8C911F1468C30005EA83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DB8A8C931F146FEF0005EA83 /* libdns_services.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdns_services.tbd; path = usr/lib/libdns_services.tbd; sourceTree = SDKROOT; };
-		DB8A8C951F14B3250005EA83 /* Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Header.h; sourceTree = "<group>"; };
+		DB8A8C951F14B3250005EA83 /* RRHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRHeader.h; sourceTree = "<group>"; };
 		DBBD360D1F0A201700C2EA0B /* 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBD36111F0A201700C2EA0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DBBD36131F0A201700C2EA0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -198,7 +198,7 @@
 				DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */,
 				DB8A8C7D1F136AF70005EA83 /* DNSLookUp.h */,
 				DB8A8C7E1F136AF70005EA83 /* DNSLookUp.m */,
-				DB8A8C951F14B3250005EA83 /* Header.h */,
+				DB8A8C951F14B3250005EA83 /* RRHeader.h */,
 			);
 			path = Log;
 			sourceTree = "<group>";

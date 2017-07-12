@@ -52,4 +52,7 @@ didCompleteWithError:(nullable NSError *)error{
     didReceiveData:(NSData *)data{
     [self.data appendData:data];
 }
+-(void)URLSession:(NSURLSession *)session task:(NSURLSessionTask *)task didFinishCollectingMetrics:(NSURLSessionTaskMetrics *)metrics{
+    
+}
 @end

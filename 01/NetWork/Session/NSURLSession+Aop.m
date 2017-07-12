@@ -7,13 +7,15 @@
 //
 
 
+
 #import <UIKit/UIKit.h>
 #import "NSURLSession+Aop.h"
 #import <objc/runtime.h>
 #import "URLSessionDelegate.h"
 #import "URLSessionProxy.h"
-#import "Header.h"
+#import "RRHeader.h"
 #define IS_IOS_10    [[UIDevice currentDevice].systemVersion floatValue] >= 10.0 ? YES : NO
+#define IOS_VERSION_10_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)? (YES):(NO))
 @implementation NSURLSession (Aop)
 static id single;
 +(NSURLSession *)_sharedSession{
@@ -46,7 +48,13 @@ static id single;
     
     
     //信息搜集
-    RRMessage *info =  [[RRMessage alloc]init];
+    RRMessage *info;
+#ifdef __IPHONE_10_0
+    info = [[RRStrongMessage alloc]init];
+#else
+    info =  [[RRMessage alloc]init];
+#endif
+    
     info.date = [NSDate date];
     info.absUrl = request.URL.absoluteString;
     info.type = URLSession;
@@ -71,9 +79,19 @@ static id single;
 }
 
 +(void)load{
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
-    
-#else
+//#ifdef __IPHONE_10_0
+//    static dispatch_once_t onceToken;
+//    dispatch_once(&onceToken, ^{
+//        Class clazz = [self class];
+//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sharedSession)), class_getClassMethod(clazz, @selector(_sharedSession)));
+//        
+//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sessionWithConfiguration:)), class_getClassMethod(clazz, @selector(_sessionWithConfiguration:)));
+//        
+//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sessionWithConfiguration:delegate:delegateQueue:)), class_getClassMethod(clazz, @selector(_sessionWithConfiguration:delegate:delegateQueue:)));
+//        
+//        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(dataTaskWithRequest:completionHandler:)), class_getInstanceMethod(clazz, @selector(_dataTaskWithRequest:completionHandler:)));
+//    });
+//#else
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class clazz = [self class];
@@ -91,7 +109,6 @@ static id single;
         method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(can_delegate_task_didSendBodyData)), class_getInstanceMethod(clazz, @selector(_can_delegate_task_didSendBodyData)));
         
     });
-    
-#endif
+//#endif
 }
 @end

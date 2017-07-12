@@ -20,7 +20,17 @@ typedef enum {
     > 所有 表示的时间的属性 都是相对于任务开始的时间
     > 除了start 其他都都不可能为0  除非没有得到该值 / 或者没有该属性值
  
- 
+----------------------------------------------------------------------------------------------------->
+  start 
+        dns_start
+                    dns_end ##
+                                ssl_start
+                                           ssl_end ##
+                                                    request_data_send ##
+                                                                    receive_reponse
+                                                                                    get_data
+                                                                                        get_data....
+                                                                                                    end
  */
 
 /**
@@ -51,13 +61,18 @@ typedef enum {
  */
 @property(nonatomic,assign)BOOL success;
 
+
+/**
+    may bi nil   网络请求错误
+ */
+@property(nonatomic,copy)NSString *errorReason;
 /**
     是否为安全连接
  */
 @property(nonatomic,assign)BOOL is_ssl;
 
 /**
-    开始时间  在统计接受后会至 0
+    开始时间  在统计结束 后会至 0
  */
 @property(nonatomic,assign)double start;
 
@@ -82,7 +97,7 @@ typedef enum {
 /**
     开始SSL 验证 时间  https
  */
-@property(nonatomic,assign)double SSL;
+@property(nonatomic,assign)double ssl_start;
 
 /**
     开始发送请求体数据 时间
@@ -100,7 +115,9 @@ typedef enum {
 /**
     第一次收到数据包 时间
  */
-@property(nonatomic,assign)double receive_data;
+@property(nonatomic,assign)double receive_data_first;
+//最后一次接受数据
+@property(nonatomic,assign)double receive_data_end;
 /**
     收到数据包次数
  */
@@ -108,7 +125,7 @@ typedef enum {
 
 
 /**
-    数据包大小
+    总数据包大小
  */
 @property(nonatomic,assign)long data_size;
 
@@ -119,3 +136,19 @@ typedef enum {
 @property(nonatomic,assign)double finish;
 
 @end
+
+
+//该类仅仅在ios10 以上  并且为Session请求时才会使用
+
+#ifdef __IPHONE_10_0
+@interface RRStrongMessage : RRMessage
+//SSL认证完成
+@property(nonatomic,assign)double ssl_end;
+//向服务器发送请求头信息 start
+@property(nonatomic,assign)double request_head_start;
+//向服务器发送请求头信息 end
+@property(nonatomic,assign)double request_head_end;
+@end
+#else
+#endif
+

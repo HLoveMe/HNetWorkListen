@@ -8,7 +8,7 @@
 
 #import "RRMessage.h"
 #import <objc/runtime.h>
-
+#import "HClassDocument.h"
 @implementation RRMessage
 -(instancetype)init{
     if ([super init]) {
@@ -37,3 +37,24 @@
     return @"";
 }
 @end
+
+#ifdef __IPHONE_10_0
+@implementation RRStrongMessage
+-(NSString *)description{
+    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+    [HClassDocument scanProperty:[self class] _super:YES option:^(NSDictionary *dictionary) {
+        for(NSString *key in dictionary){
+            NSArray<NSArray *> *one =dictionary[key];
+            for (int i=0; i<one.count; i++) {
+                NSString * aa = one[i].firstObject;
+                id value = [self valueForKey:aa];
+                dic[aa]=value;
+            }
+        }
+    }];
+    NSLog(@"%@",dic);
+    return @"";
+}
+@end
+#else
+#endif

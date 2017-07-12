@@ -33,7 +33,7 @@ void AAA(NSException *err){
     NSSetUncaughtExceptionHandler(AAA);
     NSArray *arr =@[@"https://github.com",@"https://www.baidu.com/",@"http://www.tuicool.com/",@"https://segmentfault.com/",@"http://iconfont.cn/"];
 
-    for (int i=0; i<5; i++) {
+    for (int i=0; i<1; i++) {
         NSURL *url = [NSURL URLWithString:arr[i]];
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
@@ -43,8 +43,8 @@ void AAA(NSException *err){
     }
     
     return;
-    for (int i=0; i<5; i++) {
-        NSURL*url=[NSURL URLWithString:arr[i]];
+    for (int i=0; i<1; i++) {
+        NSURL*url=[NSURL URLWithString:arr[0]];
         //    NSURL*url=[NSURL URLWithString:@"https://github.com/"];
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         request.HTTPMethod  = @"POST";
