@@ -15,9 +15,8 @@
 +(void)rebind;
 @end
 
-//@interface AddrInfoReply : NSObject{
-//@public
-//    DNSServiceGetAddrInfoReply info;
-//}
-//@property(nonatomic,strong)id context;
-//@end
+@interface AddrInfoReply : NSObject{
+@public
+    DNSServiceGetAddrInfoReply info;
+}
+@end

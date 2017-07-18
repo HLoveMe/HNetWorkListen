@@ -8,34 +8,58 @@
 
 #import "RRDNS.h"
 #include <dlfcn.h>
-#include <netdb.h>
+#import <objc/runtime.h>
 #import "RRHeader.h"
 #import <UIKit/UIKit.h>
+
+//ios9.3 以前
 static int  (* origin_getaddrinfo)(const char * __restrict, const char * __restrict,const struct addrinfo * __restrict,
                               struct addrinfo ** __restrict);
 int my_getaddrinfo(const char *  a, const char * b,
                        const struct addrinfo * c,
                    struct addrinfo ** d){
-    NSLog(@"----%@-----%@",[NSString stringWithCString:a encoding:4],[NSThread currentThread]);
+    //DNS解析开始
     int result = origin_getaddrinfo(a,b,c,d);
+    //DNS解析结束
     return result;
 }
 
+
+
+//ios9.3 以后
 static DNSServiceErrorType(*orig_DNSServiceGetAddrInfo)(DNSServiceRef *,DNSServiceFlags,uint32_t,DNSServiceProtocol,const char *,DNSServiceGetAddrInfoReply,void *);
 
+static void ABCDE(DNSServiceRef sdRef,
+           DNSServiceFlags flags,
+           uint32_t interfaceIndex,
+           DNSServiceErrorType errorCode,
+           const char                       *hostname,
+           const struct sockaddr            *address,
+           uint32_t ttl,
+           void *context){
+    if(context){
+        id con = (__bridge id)(context);
+        AddrInfoReply  *reply = objc_getAssociatedObject(con, "AddrInfoReply");
+        if(reply->info){
+            ((DNSServiceGetAddrInfoReply)(reply->info))(sdRef,flags,interfaceIndex,errorCode,hostname,address,ttl,context);
+        }
+    }
+    //DNS 解析结束
+}
 DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFlags flags, uint32_t interfaceIndex, DNSServiceProtocol protocol, const char *hostname, DNSServiceGetAddrInfoReply callBack, void *context){
-//    NSLog(@"DNS start %f",CFAbsoluteTimeGetCurrent());
-    NSThread *thread = [NSThread currentThread];
-    NSLog(@"%@-%@",[NSString stringWithUTF8String:hostname],thread);
-   //为什么是同一线程
+//    RRTask *task = [[RRNetWorkManager shareWorkManager] currentTask];
+    //还在想办法解决   RRTask 和  该 DNS 的对应关系
     
-    /**
-        1: 想法为使用ABCDE 替换该出callBack 作为解析ip地址后的回调
-        2: 但是callBack 必须在合适的时机回调 来保证请求的正常进行
-        3: 暂时还没有 办法得到DNS 解析结束时间
-     */
+    //DNS 解析开始
+    if(context){
+        id con = (__bridge id)(context);
+        AddrInfoReply  *reply = [[AddrInfoReply alloc]init];
+        reply->info =  callBack;
+        objc_setAssociatedObject(con, "AddrInfoReply", reply, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        return orig_DNSServiceGetAddrInfo(sdRef,flags,interfaceIndex,protocol,hostname,ABCDE,context);;
+    }
+    return orig_DNSServiceGetAddrInfo(sdRef,flags,interfaceIndex,protocol,hostname,callBack,context);;
     
-    return orig_DNSServiceGetAddrInfo(sdRef,flags,interfaceIndex,protocol,hostname,callBack,context);
 }
 
 
@@ -43,11 +67,15 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
 
 +(void)rebind{
     if(iOS9_3){
+        
         static dispatch_once_t rebind;
         dispatch_once(&rebind, ^{
             void *lib = dlopen("/usr/lib/system/libsystem_dnssd.dylib", RTLD_NOW);
             orig_DNSServiceGetAddrInfo = dlsym(lib, "DNSServiceGetAddrInfo");
-            rebind_symbols((struct rebinding[1]){{"DNSServiceGetAddrInfo",my_DNSServiceGetAddrInfo}}, 1);
+            rebind_symbols((struct rebinding[1]){
+                {"DNSServiceGetAddrInfo",my_DNSServiceGetAddrInfo},
+                
+            }, 1);
             dlclose(lib);
         });
     }else{
@@ -62,9 +90,11 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
 }
 @end
 
-//@implementation AddrInfoReply
-//@end
-void ABCDE(DNSServiceRef sdRef,
+@implementation AddrInfoReply
+
+
+@end
+void ABsCDE(DNSServiceRef sdRef,
            DNSServiceFlags flags,
            uint32_t interfaceIndex,
            DNSServiceErrorType errorCode,

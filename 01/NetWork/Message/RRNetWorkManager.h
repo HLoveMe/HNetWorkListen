@@ -22,10 +22,14 @@ typedef enum {
 +(instancetype)shareWorkManager;
 -(void)addTask:(RRTask *)task;
 -(void)hasFinish:(RRTask *)task;
-
--(RRMessage *)currentTask;
+-(RRTask *)currentTask;
 @end
 
 @interface RRNetWorkManager (netWork)
 -(NetWorkStatues)currentNetworkStatu;
+@end
+
+@interface RRNetWorkManager (log)
++(void)setLogSavePath:(NSString *)path;
++(NSString *)logPath;
 @end

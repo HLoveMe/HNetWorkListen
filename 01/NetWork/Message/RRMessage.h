@@ -13,6 +13,7 @@ typedef enum {
     URLSession,   //NSURLSession
     CFNetWork    // CFNetWork
 }NetWorkType;
+
 #import "RRNetWorkManager.h"
 @interface RRMessage : NSObject
 /**

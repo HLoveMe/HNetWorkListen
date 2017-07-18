@@ -92,15 +92,10 @@
         method_setImplementation(class_getClassMethod(clazz, @selector(sendSynchronousRequest:returningResponse:error:)),method_getImplementation(class_getClassMethod(clazz, @selector(_sendSynchronousRequest:returningResponse:error:))));
         
         method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(start)), class_getInstanceMethod(clazz, @selector(startNetwork)));
-        
-        
-        
-        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(_connectionProperties)), class_getInstanceMethod(clazz, @selector(connectionProperties)));
+       
     });
 }
-- (id)_connectionProperties{
-   return  [self _connectionProperties];
-}
+
 @end
 
 #pragma clang diagnostic pop

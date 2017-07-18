@@ -9,11 +9,13 @@
 
 #import "RRNetWorkManager.h"
 #import <UIKit/UIKit.h>
+#import "RRHeader.h"
 @interface RRNetWorkManager()
 @property(nonatomic,strong)NSMutableArray *tasks;
 @property(nonatomic,strong)UIView *stausV;
 @end
 static id single;
+static NSString * logPath;
 @implementation RRNetWorkManager
 -(NSMutableArray *)tasks{
     if (nil==_tasks) {
@@ -24,8 +26,16 @@ static id single;
 +(instancetype)shareWorkManager{
     if(single == nil){
         single = [[RRNetWorkManager alloc]init];
+        [self createPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"network"]];
     }
     return single;
+}
++(void)createPath:(NSString *)path{
+    logPath = path;
+    NSFileManager *manager =  [NSFileManager defaultManager];
+    if(![manager fileExistsAtPath:logPath]){
+        [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
+    }
 }
 -(void)addTask:(RRTask *)msg{
     [self.tasks addObject:msg];
@@ -33,12 +43,27 @@ static id single;
 
 -(void)hasFinish:(RRTask *)task{
     [self.tasks removeObject:task];
+    NSFileManager *manager =  [NSFileManager defaultManager];
+    [[manager contentsOfDirectoryAtPath:logPath error:nil] enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+    }];
     //保存记录
 //    。。。。
 }
--(RRMessage *)currentTask{
-    
-    return nil;
+-(RRTask *)currentTask{
+    NSMutableArray *tas = [NSMutableArray array];
+//    @synchronized (self) {
+//        double current =  CFAbsoluteTimeGetCurrent();
+//        [self.tasks enumerateObjectsUsingBlock:^(RRTask *  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+//            if(obj.msg.start!=0 && current>obj.msg.start && obj.msg.ssl_start == 0){
+//                [tas addObject:obj];
+//            }
+//        }];
+//    }
+//    if(tas.count>1){
+//    
+//    }
+    return tas.lastObject;
 }
 
 @end
@@ -86,4 +111,13 @@ static id single;
     return states;
 }
 
+@end
+
+@implementation RRNetWorkManager (log)
++(void)setLogSavePath:(NSString *)path{
+    [self createPath:path];
+}
++(NSString *)logPath{
+    return logPath;
+}
 @end

@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		B2B079931F1CB03A00BE5565 /* NetWorkControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B079921F1CB03A00BE5565 /* NetWorkControl.m */; };
+		DB2C3AB11F1E1443005E56D6 /* RRDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3AA91F1E1443005E56D6 /* RRDNS.m */; };
+		DB2C3AB21F1E1443005E56D6 /* RRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3AAC1F1E1443005E56D6 /* RRMessage.m */; };
+		DB2C3AB31F1E1443005E56D6 /* RRNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3AAE1F1E1443005E56D6 /* RRNetWorkManager.m */; };
+		DB2C3AB41F1E1443005E56D6 /* RRTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3AB01F1E1443005E56D6 /* RRTask.m */; };
+		DB2C3ABB1F1E14DF005E56D6 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = DB2C3AB91F1E14DF005E56D6 /* fishhook.c */; };
 		DB8A8C431F1310560005EA83 /* NSURLConnection+Aop.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C351F1310560005EA83 /* NSURLConnection+Aop.m */; };
 		DB8A8C441F1310560005EA83 /* URLConnectDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C371F1310560005EA83 /* URLConnectDelegate.m */; };
 		DB8A8C451F1310560005EA83 /* URLConnectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C391F1310560005EA83 /* URLConnectProxy.m */; };
@@ -15,11 +20,6 @@
 		DB8A8C471F1310560005EA83 /* NSURLSessionTask+Aop.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C3E1F1310560005EA83 /* NSURLSessionTask+Aop.m */; };
 		DB8A8C481F1310560005EA83 /* URLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C401F1310560005EA83 /* URLSessionDelegate.m */; };
 		DB8A8C491F1310560005EA83 /* URLSessionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C421F1310560005EA83 /* URLSessionProxy.m */; };
-		DB8A8C501F1334C40005EA83 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C4E1F1334C40005EA83 /* fishhook.c */; };
-		DB8A8C7F1F136AF70005EA83 /* RRDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C7E1F136AF70005EA83 /* RRDNS.m */; };
-		DB8A8C891F137CDD0005EA83 /* RRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C881F137CDD0005EA83 /* RRMessage.m */; };
-		DB8A8C8C1F1381A80005EA83 /* RRTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C8B1F1381A80005EA83 /* RRTask.m */; };
-		DB8A8C8F1F13832E0005EA83 /* RRNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */; };
 		DB8A8C921F1468C30005EA83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8A8C911F1468C30005EA83 /* UIKit.framework */; };
 		DB8A8C991F1611A80005EA83 /* InputStreamProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C981F1611A80005EA83 /* InputStreamProxy.m */; };
 		DB8A8C9E1F161DF80005EA83 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8A8C9D1F161DF80005EA83 /* a.png */; };
@@ -64,6 +64,17 @@
 /* Begin PBXFileReference section */
 		B2B079911F1CB03A00BE5565 /* NetWorkControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkControl.h; sourceTree = "<group>"; };
 		B2B079921F1CB03A00BE5565 /* NetWorkControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkControl.m; sourceTree = "<group>"; };
+		DB2C3AA81F1E1443005E56D6 /* RRDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRDNS.h; sourceTree = "<group>"; };
+		DB2C3AA91F1E1443005E56D6 /* RRDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRDNS.m; sourceTree = "<group>"; };
+		DB2C3AAA1F1E1443005E56D6 /* RRHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRHeader.h; sourceTree = "<group>"; };
+		DB2C3AAB1F1E1443005E56D6 /* RRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMessage.h; sourceTree = "<group>"; };
+		DB2C3AAC1F1E1443005E56D6 /* RRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMessage.m; sourceTree = "<group>"; };
+		DB2C3AAD1F1E1443005E56D6 /* RRNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRNetWorkManager.h; sourceTree = "<group>"; };
+		DB2C3AAE1F1E1443005E56D6 /* RRNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRNetWorkManager.m; sourceTree = "<group>"; };
+		DB2C3AAF1F1E1443005E56D6 /* RRTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRTask.h; sourceTree = "<group>"; };
+		DB2C3AB01F1E1443005E56D6 /* RRTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRTask.m; sourceTree = "<group>"; };
+		DB2C3AB91F1E14DF005E56D6 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = fishhook.c; sourceTree = "<group>"; };
+		DB2C3ABA1F1E14DF005E56D6 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fishhook.h; sourceTree = "<group>"; };
 		DB8A8C341F1310560005EA83 /* NSURLConnection+Aop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Aop.h"; sourceTree = "<group>"; };
 		DB8A8C351F1310560005EA83 /* NSURLConnection+Aop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Aop.m"; sourceTree = "<group>"; };
 		DB8A8C361F1310560005EA83 /* URLConnectDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectDelegate.h; sourceTree = "<group>"; };
@@ -78,19 +89,8 @@
 		DB8A8C401F1310560005EA83 /* URLSessionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionDelegate.m; sourceTree = "<group>"; };
 		DB8A8C411F1310560005EA83 /* URLSessionProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLSessionProxy.h; sourceTree = "<group>"; };
 		DB8A8C421F1310560005EA83 /* URLSessionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionProxy.m; sourceTree = "<group>"; };
-		DB8A8C4E1F1334C40005EA83 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fishhook.c; path = ../../fishhook.c; sourceTree = "<group>"; };
-		DB8A8C4F1F1334C40005EA83 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = ../../fishhook.h; sourceTree = "<group>"; };
-		DB8A8C7D1F136AF70005EA83 /* RRDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RRDNS.h; path = ../RRDNS.h; sourceTree = "<group>"; };
-		DB8A8C7E1F136AF70005EA83 /* RRDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RRDNS.m; path = ../RRDNS.m; sourceTree = "<group>"; };
-		DB8A8C871F137CDD0005EA83 /* RRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMessage.h; sourceTree = "<group>"; };
-		DB8A8C881F137CDD0005EA83 /* RRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMessage.m; sourceTree = "<group>"; };
-		DB8A8C8A1F1381A80005EA83 /* RRTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRTask.h; sourceTree = "<group>"; };
-		DB8A8C8B1F1381A80005EA83 /* RRTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRTask.m; sourceTree = "<group>"; };
-		DB8A8C8D1F13832E0005EA83 /* RRNetWorkManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRNetWorkManager.h; sourceTree = "<group>"; };
-		DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRNetWorkManager.m; sourceTree = "<group>"; };
 		DB8A8C911F1468C30005EA83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DB8A8C931F146FEF0005EA83 /* libdns_services.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdns_services.tbd; path = usr/lib/libdns_services.tbd; sourceTree = SDKROOT; };
-		DB8A8C951F14B3250005EA83 /* RRHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRHeader.h; sourceTree = "<group>"; };
 		DB8A8C971F1611A80005EA83 /* InputStreamProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStreamProxy.h; sourceTree = "<group>"; };
 		DB8A8C981F1611A80005EA83 /* InputStreamProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputStreamProxy.m; sourceTree = "<group>"; };
 		DB8A8C9D1F161DF80005EA83 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
@@ -161,11 +161,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DB2C3AA71F1E1443005E56D6 /* Message */ = {
+			isa = PBXGroup;
+			children = (
+				DB2C3AA81F1E1443005E56D6 /* RRDNS.h */,
+				DB2C3AA91F1E1443005E56D6 /* RRDNS.m */,
+				DB2C3AAA1F1E1443005E56D6 /* RRHeader.h */,
+				DB2C3AAB1F1E1443005E56D6 /* RRMessage.h */,
+				DB2C3AAC1F1E1443005E56D6 /* RRMessage.m */,
+				DB2C3AAD1F1E1443005E56D6 /* RRNetWorkManager.h */,
+				DB2C3AAE1F1E1443005E56D6 /* RRNetWorkManager.m */,
+				DB2C3AAF1F1E1443005E56D6 /* RRTask.h */,
+				DB2C3AB01F1E1443005E56D6 /* RRTask.m */,
+			);
+			path = Message;
+			sourceTree = "<group>";
+		};
+		DB2C3AB81F1E14DF005E56D6 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				DB2C3AB91F1E14DF005E56D6 /* fishhook.c */,
+				DB2C3ABA1F1E14DF005E56D6 /* fishhook.h */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
 		DB8A8C321F1310560005EA83 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				DB2C3AB81F1E14DF005E56D6 /* Source */,
+				DB2C3AA71F1E1443005E56D6 /* Message */,
 				DB8A8C961F1611500005EA83 /* CFNetwork */,
-				DB8A8C831F137B200005EA83 /* Log */,
 				DB8A8C331F1310560005EA83 /* Connect */,
 				DB8A8C3A1F1310560005EA83 /* Session */,
 				B2B079911F1CB03A00BE5565 /* NetWorkControl.h */,
@@ -200,24 +226,6 @@
 				DB8A8C421F1310560005EA83 /* URLSessionProxy.m */,
 			);
 			path = Session;
-			sourceTree = "<group>";
-		};
-		DB8A8C831F137B200005EA83 /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				DB8A8C4F1F1334C40005EA83 /* fishhook.h */,
-				DB8A8C4E1F1334C40005EA83 /* fishhook.c */,
-				DB8A8C8A1F1381A80005EA83 /* RRTask.h */,
-				DB8A8C8B1F1381A80005EA83 /* RRTask.m */,
-				DB8A8C871F137CDD0005EA83 /* RRMessage.h */,
-				DB8A8C881F137CDD0005EA83 /* RRMessage.m */,
-				DB8A8C8D1F13832E0005EA83 /* RRNetWorkManager.h */,
-				DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */,
-				DB8A8C7D1F136AF70005EA83 /* RRDNS.h */,
-				DB8A8C7E1F136AF70005EA83 /* RRDNS.m */,
-				DB8A8C951F14B3250005EA83 /* RRHeader.h */,
-			);
-			path = Log;
 			sourceTree = "<group>";
 		};
 		DB8A8C901F1468C30005EA83 /* Frameworks */ = {
@@ -488,13 +496,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB8A8C461F1310560005EA83 /* NSURLSession+Aop.m in Sources */,
-				DB8A8C501F1334C40005EA83 /* fishhook.c in Sources */,
 				DBF5B0421F0C988000CBCD49 /* NSObject+Proxy.m in Sources */,
 				DBF5B0441F0C988000CBCD49 /* HClassExtension.m in Sources */,
-				DB8A8C8F1F13832E0005EA83 /* RRNetWorkManager.m in Sources */,
+				DB2C3AB11F1E1443005E56D6 /* RRDNS.m in Sources */,
 				DBBD36181F0A201700C2EA0B /* ViewController.mm in Sources */,
 				DB8A8C451F1310560005EA83 /* URLConnectProxy.m in Sources */,
-				DB8A8C8C1F1381A80005EA83 /* RRTask.m in Sources */,
+				DB2C3AB21F1E1443005E56D6 /* RRMessage.m in Sources */,
 				DB8A8C491F1310560005EA83 /* URLSessionProxy.m in Sources */,
 				DBF5B0401F0C988000CBCD49 /* HGProperty.m in Sources */,
 				DBFBEBAB1F174BDC00E1D188 /* CFNetClient.m in Sources */,
@@ -504,17 +511,18 @@
 				B2B079931F1CB03A00BE5565 /* NetWorkControl.m in Sources */,
 				DBBD36121F0A201700C2EA0B /* main.m in Sources */,
 				DBBD36551F0B237600C2EA0B /* TargetProxy.m in Sources */,
+				DB2C3AB41F1E1443005E56D6 /* RRTask.m in Sources */,
+				DB2C3AB31F1E1443005E56D6 /* RRNetWorkManager.m in Sources */,
 				DB8A8C471F1310560005EA83 /* NSURLSessionTask+Aop.m in Sources */,
 				DB8A8C991F1611A80005EA83 /* InputStreamProxy.m in Sources */,
 				DBF5B0431F0C988000CBCD49 /* HClassDocument.m in Sources */,
 				DBFBEBA81F174ACE00E1D188 /* CFRebind.m in Sources */,
+				DB2C3ABB1F1E14DF005E56D6 /* fishhook.c in Sources */,
 				DBF5B0411F0C988000CBCD49 /* NSObject+HAdd.m in Sources */,
-				DB8A8C7F1F136AF70005EA83 /* RRDNS.m in Sources */,
 				DB8A8C431F1310560005EA83 /* NSURLConnection+Aop.m in Sources */,
 				DBF5B03F1F0C988000CBCD49 /* HGMethod.m in Sources */,
 				DBF5B0451F0C988000CBCD49 /* HInvocation.m in Sources */,
 				DB8A8C441F1310560005EA83 /* URLConnectDelegate.m in Sources */,
-				DB8A8C891F137CDD0005EA83 /* RRMessage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

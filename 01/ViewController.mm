@@ -151,11 +151,17 @@ void myCallBack(CFReadStreamRef stream,CFStreamEventType type,void *clientCallBa
 //        NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration] delegate:self delegateQueue:[NSOperationQueue mainQueue]];
 //        [[session dataTaskWithRequest:request] resume];
         NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
-        [[session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        NSURLSessionTask *task = [session dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
 
             NSLog(@"Success");
 
-        }] resume];
+        }];
+        [task resume];
+        
+        
+//        NSLog(@"session:%p",session);
+//        NSLog(@"task:%p",task);
     }
 }
 - (void)viewDidLoad {
@@ -165,8 +171,8 @@ void myCallBack(CFReadStreamRef stream,CFStreamEventType type,void *clientCallBa
     
     
 //    [self cfnetwork];
-    [self connect];
-//    [self session];
+//    [self connect];
+    [self session];
 }
 -(void)URLSession:(NSURLSession *)session dataTask:(NSURLSessionDataTask *)dataTask didReceiveData:(NSData *)data{
     

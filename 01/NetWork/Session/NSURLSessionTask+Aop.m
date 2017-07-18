@@ -19,12 +19,9 @@
     [proxy performSelector:@selector(resume)];
     [self _resume];
 }
-static int indexA=100;
+
 - (id)onqueue_strippedMutableRequest{
-    NSThread *thread = [NSThread currentThread];
-    
-    [thread setName:[NSString stringWithFormat:@"name-%d",indexA]];
-    indexA+=1;
+    //关系
     NSLog(@"%@-%@",self.currentRequest.URL.absoluteString,[NSThread currentThread]);
     return [self onqueue_strippedMutableRequest];
 }
@@ -34,11 +31,7 @@ static int indexA=100;
     dispatch_once(&task, ^{
         Class clazz = NSClassFromString(@"__NSCFLocalDataTask");
         method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(resume)), class_getInstanceMethod([self class], @selector(_resume)));
-        
-        
-        //        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(_onqueue_suspend)), class_getInstanceMethod([self class], @selector(onqueue_suspend)));
-        
-        
+
         method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(_onqueue_strippedMutableRequest)), class_getInstanceMethod([self class], @selector(onqueue_strippedMutableRequest)));
         /**
          NSURLSessionTask

@@ -9,10 +9,5 @@
 #import "RRTask.h"
 #import "RRMessage.h"
 @implementation RRTask
--(BOOL)isEqual:(id)object{
-    if([object isKindOfClass:[NSURLSessionTask class]]){
-        return [self.task isEqual:object];
-    }
-    return NO;
-}
+
 @end
