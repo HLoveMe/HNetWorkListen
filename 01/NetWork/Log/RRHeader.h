@@ -10,3 +10,5 @@
 #import "RRMessage.h"
 #import "RRNetWorkManager.h"
 
+#define iOS10 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)
+#define iOS9_3 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.3)

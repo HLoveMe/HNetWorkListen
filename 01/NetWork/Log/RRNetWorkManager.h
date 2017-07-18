@@ -23,6 +23,7 @@ typedef enum {
 -(void)addTask:(RRTask *)task;
 -(void)hasFinish:(RRTask *)task;
 
+-(RRMessage *)currentTask;
 @end
 
 @interface RRNetWorkManager (netWork)

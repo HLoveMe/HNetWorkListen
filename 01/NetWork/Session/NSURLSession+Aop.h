@@ -9,5 +9,5 @@
 #import <Foundation/Foundation.h>
 
 @interface NSURLSession (Aop)
-
++(void)rebind;
 @end

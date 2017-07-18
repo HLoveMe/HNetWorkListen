@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "fishhook.h"
+
 @interface AppDelegate ()
 
 @end

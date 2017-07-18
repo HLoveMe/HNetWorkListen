@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B2B079931F1CB03A00BE5565 /* NetWorkControl.m in Sources */ = {isa = PBXBuildFile; fileRef = B2B079921F1CB03A00BE5565 /* NetWorkControl.m */; };
 		DB8A8C431F1310560005EA83 /* NSURLConnection+Aop.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C351F1310560005EA83 /* NSURLConnection+Aop.m */; };
 		DB8A8C441F1310560005EA83 /* URLConnectDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C371F1310560005EA83 /* URLConnectDelegate.m */; };
 		DB8A8C451F1310560005EA83 /* URLConnectProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C391F1310560005EA83 /* URLConnectProxy.m */; };
@@ -15,11 +16,13 @@
 		DB8A8C481F1310560005EA83 /* URLSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C401F1310560005EA83 /* URLSessionDelegate.m */; };
 		DB8A8C491F1310560005EA83 /* URLSessionProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C421F1310560005EA83 /* URLSessionProxy.m */; };
 		DB8A8C501F1334C40005EA83 /* fishhook.c in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C4E1F1334C40005EA83 /* fishhook.c */; };
-		DB8A8C7F1F136AF70005EA83 /* DNSLookUp.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C7E1F136AF70005EA83 /* DNSLookUp.m */; };
+		DB8A8C7F1F136AF70005EA83 /* RRDNS.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C7E1F136AF70005EA83 /* RRDNS.m */; };
 		DB8A8C891F137CDD0005EA83 /* RRMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C881F137CDD0005EA83 /* RRMessage.m */; };
 		DB8A8C8C1F1381A80005EA83 /* RRTask.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C8B1F1381A80005EA83 /* RRTask.m */; };
 		DB8A8C8F1F13832E0005EA83 /* RRNetWorkManager.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */; };
 		DB8A8C921F1468C30005EA83 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8A8C911F1468C30005EA83 /* UIKit.framework */; };
+		DB8A8C991F1611A80005EA83 /* InputStreamProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DB8A8C981F1611A80005EA83 /* InputStreamProxy.m */; };
+		DB8A8C9E1F161DF80005EA83 /* a.png in Resources */ = {isa = PBXBuildFile; fileRef = DB8A8C9D1F161DF80005EA83 /* a.png */; };
 		DBBD36121F0A201700C2EA0B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBD36111F0A201700C2EA0B /* main.m */; };
 		DBBD36151F0A201700C2EA0B /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = DBBD36141F0A201700C2EA0B /* AppDelegate.mm */; };
 		DBBD36181F0A201700C2EA0B /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = DBBD36171F0A201700C2EA0B /* ViewController.mm */; };
@@ -37,6 +40,8 @@
 		DBF5B0431F0C988000CBCD49 /* HClassDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03A1F0C988000CBCD49 /* HClassDocument.m */; };
 		DBF5B0441F0C988000CBCD49 /* HClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03C1F0C988000CBCD49 /* HClassExtension.m */; };
 		DBF5B0451F0C988000CBCD49 /* HInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03E1F0C988000CBCD49 /* HInvocation.m */; };
+		DBFBEBA81F174ACE00E1D188 /* CFRebind.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFBEBA71F174ACE00E1D188 /* CFRebind.m */; };
+		DBFBEBAB1F174BDC00E1D188 /* CFNetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFBEBAA1F174BDC00E1D188 /* CFNetClient.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B2B079911F1CB03A00BE5565 /* NetWorkControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetWorkControl.h; sourceTree = "<group>"; };
+		B2B079921F1CB03A00BE5565 /* NetWorkControl.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NetWorkControl.m; sourceTree = "<group>"; };
 		DB8A8C341F1310560005EA83 /* NSURLConnection+Aop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+Aop.h"; sourceTree = "<group>"; };
 		DB8A8C351F1310560005EA83 /* NSURLConnection+Aop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+Aop.m"; sourceTree = "<group>"; };
 		DB8A8C361F1310560005EA83 /* URLConnectDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLConnectDelegate.h; sourceTree = "<group>"; };
@@ -73,8 +80,8 @@
 		DB8A8C421F1310560005EA83 /* URLSessionProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLSessionProxy.m; sourceTree = "<group>"; };
 		DB8A8C4E1F1334C40005EA83 /* fishhook.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; name = fishhook.c; path = ../../fishhook.c; sourceTree = "<group>"; };
 		DB8A8C4F1F1334C40005EA83 /* fishhook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = fishhook.h; path = ../../fishhook.h; sourceTree = "<group>"; };
-		DB8A8C7D1F136AF70005EA83 /* DNSLookUp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DNSLookUp.h; path = ../DNSLookUp.h; sourceTree = "<group>"; };
-		DB8A8C7E1F136AF70005EA83 /* DNSLookUp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DNSLookUp.m; path = ../DNSLookUp.m; sourceTree = "<group>"; };
+		DB8A8C7D1F136AF70005EA83 /* RRDNS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RRDNS.h; path = ../RRDNS.h; sourceTree = "<group>"; };
+		DB8A8C7E1F136AF70005EA83 /* RRDNS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RRDNS.m; path = ../RRDNS.m; sourceTree = "<group>"; };
 		DB8A8C871F137CDD0005EA83 /* RRMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRMessage.h; sourceTree = "<group>"; };
 		DB8A8C881F137CDD0005EA83 /* RRMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RRMessage.m; sourceTree = "<group>"; };
 		DB8A8C8A1F1381A80005EA83 /* RRTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RRTask.h; sourceTree = "<group>"; };
@@ -84,6 +91,9 @@
 		DB8A8C911F1468C30005EA83 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		DB8A8C931F146FEF0005EA83 /* libdns_services.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libdns_services.tbd; path = usr/lib/libdns_services.tbd; sourceTree = SDKROOT; };
 		DB8A8C951F14B3250005EA83 /* RRHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RRHeader.h; sourceTree = "<group>"; };
+		DB8A8C971F1611A80005EA83 /* InputStreamProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputStreamProxy.h; sourceTree = "<group>"; };
+		DB8A8C981F1611A80005EA83 /* InputStreamProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputStreamProxy.m; sourceTree = "<group>"; };
+		DB8A8C9D1F161DF80005EA83 /* a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = a.png; sourceTree = "<group>"; };
 		DBBD360D1F0A201700C2EA0B /* 01.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = 01.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DBBD36111F0A201700C2EA0B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		DBBD36131F0A201700C2EA0B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -119,6 +129,10 @@
 		DBF5B03C1F0C988000CBCD49 /* HClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HClassExtension.m; sourceTree = "<group>"; };
 		DBF5B03D1F0C988000CBCD49 /* HInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInvocation.h; sourceTree = "<group>"; };
 		DBF5B03E1F0C988000CBCD49 /* HInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HInvocation.m; sourceTree = "<group>"; };
+		DBFBEBA61F174ACE00E1D188 /* CFRebind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRebind.h; sourceTree = "<group>"; };
+		DBFBEBA71F174ACE00E1D188 /* CFRebind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFRebind.m; sourceTree = "<group>"; };
+		DBFBEBA91F174BDC00E1D188 /* CFNetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetClient.h; sourceTree = "<group>"; };
+		DBFBEBAA1F174BDC00E1D188 /* CFNetClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFNetClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,9 +164,12 @@
 		DB8A8C321F1310560005EA83 /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				DB8A8C961F1611500005EA83 /* CFNetwork */,
 				DB8A8C831F137B200005EA83 /* Log */,
 				DB8A8C331F1310560005EA83 /* Connect */,
 				DB8A8C3A1F1310560005EA83 /* Session */,
+				B2B079911F1CB03A00BE5565 /* NetWorkControl.h */,
+				B2B079921F1CB03A00BE5565 /* NetWorkControl.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -196,8 +213,8 @@
 				DB8A8C881F137CDD0005EA83 /* RRMessage.m */,
 				DB8A8C8D1F13832E0005EA83 /* RRNetWorkManager.h */,
 				DB8A8C8E1F13832E0005EA83 /* RRNetWorkManager.m */,
-				DB8A8C7D1F136AF70005EA83 /* DNSLookUp.h */,
-				DB8A8C7E1F136AF70005EA83 /* DNSLookUp.m */,
+				DB8A8C7D1F136AF70005EA83 /* RRDNS.h */,
+				DB8A8C7E1F136AF70005EA83 /* RRDNS.m */,
 				DB8A8C951F14B3250005EA83 /* RRHeader.h */,
 			);
 			path = Log;
@@ -210,6 +227,19 @@
 				DB8A8C911F1468C30005EA83 /* UIKit.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DB8A8C961F1611500005EA83 /* CFNetwork */ = {
+			isa = PBXGroup;
+			children = (
+				DB8A8C971F1611A80005EA83 /* InputStreamProxy.h */,
+				DB8A8C981F1611A80005EA83 /* InputStreamProxy.m */,
+				DBFBEBA61F174ACE00E1D188 /* CFRebind.h */,
+				DBFBEBA71F174ACE00E1D188 /* CFRebind.m */,
+				DBFBEBA91F174BDC00E1D188 /* CFNetClient.h */,
+				DBFBEBAA1F174BDC00E1D188 /* CFNetClient.m */,
+			);
+			path = CFNetwork;
 			sourceTree = "<group>";
 		};
 		DBBD36041F0A201700C2EA0B = {
@@ -240,6 +270,7 @@
 				DBF5B02D1F0C988000CBCD49 /* HGClass */,
 				DBBD36131F0A201700C2EA0B /* AppDelegate.h */,
 				DBBD36141F0A201700C2EA0B /* AppDelegate.mm */,
+				DB8A8C9D1F161DF80005EA83 /* a.png */,
 				DBBD36161F0A201700C2EA0B /* ViewController.h */,
 				DBBD36171F0A201700C2EA0B /* ViewController.mm */,
 				DBBD36531F0B237600C2EA0B /* TargetProxy.h */,
@@ -430,6 +461,7 @@
 			files = (
 				DBBD36201F0A201700C2EA0B /* LaunchScreen.storyboard in Resources */,
 				DBBD361D1F0A201700C2EA0B /* Assets.xcassets in Resources */,
+				DB8A8C9E1F161DF80005EA83 /* a.png in Resources */,
 				DBBD361B1F0A201700C2EA0B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -465,15 +497,19 @@
 				DB8A8C8C1F1381A80005EA83 /* RRTask.m in Sources */,
 				DB8A8C491F1310560005EA83 /* URLSessionProxy.m in Sources */,
 				DBF5B0401F0C988000CBCD49 /* HGProperty.m in Sources */,
+				DBFBEBAB1F174BDC00E1D188 /* CFNetClient.m in Sources */,
 				DBBD36151F0A201700C2EA0B /* AppDelegate.mm in Sources */,
 				DB8A8C481F1310560005EA83 /* URLSessionDelegate.m in Sources */,
 				DBF5B02C1F0C91EF00CBCD49 /* Student.m in Sources */,
+				B2B079931F1CB03A00BE5565 /* NetWorkControl.m in Sources */,
 				DBBD36121F0A201700C2EA0B /* main.m in Sources */,
 				DBBD36551F0B237600C2EA0B /* TargetProxy.m in Sources */,
 				DB8A8C471F1310560005EA83 /* NSURLSessionTask+Aop.m in Sources */,
+				DB8A8C991F1611A80005EA83 /* InputStreamProxy.m in Sources */,
 				DBF5B0431F0C988000CBCD49 /* HClassDocument.m in Sources */,
+				DBFBEBA81F174ACE00E1D188 /* CFRebind.m in Sources */,
 				DBF5B0411F0C988000CBCD49 /* NSObject+HAdd.m in Sources */,
-				DB8A8C7F1F136AF70005EA83 /* DNSLookUp.m in Sources */,
+				DB8A8C7F1F136AF70005EA83 /* RRDNS.m in Sources */,
 				DB8A8C431F1310560005EA83 /* NSURLConnection+Aop.m in Sources */,
 				DBF5B03F1F0C988000CBCD49 /* HGMethod.m in Sources */,
 				DBF5B0451F0C988000CBCD49 /* HInvocation.m in Sources */,

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+#import "InputStreamProxy.h"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
-
-
+@property(nonatomic,weak)InputStreamProxy *delegate;
 @end
 

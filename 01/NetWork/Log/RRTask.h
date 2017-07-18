@@ -17,5 +17,6 @@
 @property(nonatomic,weak)NSURLConnection  *connect;
 
 @property(nonatomic,weak)NSThread  *thread;
+
 @property(nonatomic,strong)RRMessage *msg;
 @end

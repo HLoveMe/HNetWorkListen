@@ -11,8 +11,17 @@
 #import "HClassDocument.h"
 @implementation RRMessage
 -(instancetype)init{
-    if ([super init]) {
+    if (self=[super init]) {
         self.status = [[RRNetWorkManager shareWorkManager] currentNetworkStatu];
+        self.boby_send=0;
+        self.data_size=0;
+        self.dns_start=0;
+        self.dns_end=0;
+        self.finish = 0;
+        self.receive_data_end=0;
+        self.receive_data_first=0;
+        self.receive_response=0;
+        self.ssl_start=0;
     }
     return self;
 }
@@ -33,6 +42,7 @@
             dic[name]=value;
         }
     }
+    
     NSLog(@"%@",dic);
     return @"";
 }
@@ -40,6 +50,15 @@
 
 #ifdef __IPHONE_10_0
 @implementation RRStrongMessage
+
+-(instancetype)init{
+    if(self = [super init]){
+        self.request_head_end=0;
+        self.request_head_start=0;
+        self.ssl_end=0;
+    }
+    return self;
+}
 -(NSString *)description{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     [HClassDocument scanProperty:[self class] _super:YES option:^(NSDictionary *dictionary) {

@@ -11,6 +11,8 @@
 @interface URLSessionProxy : NSProxy
 //@property(nonatomic,weak)RRMessage *info;
 @property(nonatomic,weak)RRTask *task;
-@property(nonatomic,strong,readonly)id target;
+@property(nonatomic,retain)id target;
 -(id)initWithTarget:(id)target;
 @end
+
+

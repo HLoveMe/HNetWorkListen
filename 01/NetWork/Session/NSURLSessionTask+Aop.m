@@ -9,7 +9,7 @@
 #import "NSURLSessionTask+Aop.h"
 #import <objc/runtime.h>
 #import "URLSessionProxy.h"
-#import "DNSLookUp.h"
+//#import "RRDNS.h"
 
 @implementation NSURLSessionTask (Aop)
 
@@ -28,14 +28,8 @@ static int indexA=100;
     NSLog(@"%@-%@",self.currentRequest.URL.absoluteString,[NSThread currentThread]);
     return [self onqueue_strippedMutableRequest];
 }
-+(void)load{
-#ifdef __IPHONE_10_0
-    static dispatch_once_t task;
-    dispatch_once(&task, ^{
-        Class clazz = NSClassFromString(@"__NSCFLocalDataTask");
-        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(resume)), class_getInstanceMethod([self class], @selector(_resume)));
-    });
-#else
++(void)rebind{
+    
     static dispatch_once_t task;
     dispatch_once(&task, ^{
         Class clazz = NSClassFromString(@"__NSCFLocalDataTask");
@@ -60,7 +54,7 @@ static int indexA=100;
          __NSCFLocalUploadTask
          */
     });
-#endif
 }
+
 @end
 

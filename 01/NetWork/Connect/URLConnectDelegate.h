@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface URLConnectDelegate : NSObject
+@interface URLConnectDelegate : NSObject<NSURLConnectionDelegate,NSURLConnectionDataDelegate>
 -(instancetype)initOriginWith:(void(^)(NSURLResponse *res,NSData *data ,NSError *err))block;
+-(instancetype)initWith:(id)target;
 @end

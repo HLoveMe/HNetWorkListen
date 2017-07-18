@@ -15,14 +15,14 @@
 #pragma clang diagnostic ignored "-Wunused-value"
 @implementation NSURLConnection (Aop)
 -(instancetype)_initWithRequest:(NSURLRequest *)request delegate:(id)delegate startImmediately:(BOOL)startImmediately{
-    URLConnectProxy *proxy = [[URLConnectProxy alloc]initOrigin:delegate];
+    URLConnectProxy *proxy = [[URLConnectProxy alloc]initOrigin:[[URLConnectDelegate alloc]initWith:delegate]];
     objc_setAssociatedObject(self, "_proxy_", proxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
     return [self _initWithRequest:request delegate:proxy startImmediately:startImmediately];
 }
 -(instancetype)_initWithRequest:(NSURLRequest *)request delegate:(id)delegate{
-    URLConnectProxy *proxy = [[URLConnectProxy alloc]initOrigin:delegate];
+    URLConnectProxy *proxy = [[URLConnectProxy alloc]initOrigin:[[URLConnectDelegate alloc]initWith:delegate]];
     objc_setAssociatedObject(self, "_proxy_", proxy, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
-    
+//
     //信息搜集
     RRMessage *info =  [[RRMessage alloc]init];
     info.date = [NSDate date];
@@ -47,7 +47,6 @@
             handler(res,data,err);
         }]];
     }]];
-    //    [connect start]; 竟然不需要启动
 }
 +(NSData*)_sendSynchronousRequest:(NSURLRequest *)request returningResponse:(NSURLResponse *__autoreleasing  _Nullable *)response error:(NSError * _Nullable __autoreleasing *)error{
     __block NSData *_data;
@@ -68,10 +67,9 @@
     URLConnectProxy *proxy = objc_getAssociatedObject(self, "_proxy_");
     if(proxy){[proxy performSelector:@selector(start)];}
     [self startNetwork];
-    
 }
 
-+(void)load{
++(void)rebind{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class clazz = [NSURLConnection class];
@@ -94,8 +92,14 @@
         method_setImplementation(class_getClassMethod(clazz, @selector(sendSynchronousRequest:returningResponse:error:)),method_getImplementation(class_getClassMethod(clazz, @selector(_sendSynchronousRequest:returningResponse:error:))));
         
         method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(start)), class_getInstanceMethod(clazz, @selector(startNetwork)));
-        //
+        
+        
+        
+        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(_connectionProperties)), class_getInstanceMethod(clazz, @selector(connectionProperties)));
     });
+}
+- (id)_connectionProperties{
+   return  [self _connectionProperties];
 }
 @end
 

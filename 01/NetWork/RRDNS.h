@@ -11,13 +11,13 @@
 #include <sys/socket.h>
 #include <netdb.h>
 #include <dns_sd.h>
-@interface DNSLookUp : NSObject
+@interface RRDNS : NSObject
 +(void)rebind;
 @end
 
-@interface AddrInfoReply : NSObject{
-@public
-    DNSServiceGetAddrInfoReply info;
-}
-@property(nonatomic,strong)id context;
-@end
+//@interface AddrInfoReply : NSObject{
+//@public
+//    DNSServiceGetAddrInfoReply info;
+//}
+//@property(nonatomic,strong)id context;
+//@end

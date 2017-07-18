@@ -14,8 +14,7 @@
 #import "URLSessionDelegate.h"
 #import "URLSessionProxy.h"
 #import "RRHeader.h"
-#define IS_IOS_10    [[UIDevice currentDevice].systemVersion floatValue] >= 10.0 ? YES : NO
-#define IOS_VERSION_10_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 10.0)? (YES):(NO))
+
 @implementation NSURLSession (Aop)
 static id single;
 +(NSURLSession *)_sharedSession{
@@ -26,10 +25,15 @@ static id single;
     return single;
 }
 +(NSURLSession *)_sessionWithConfiguration:(NSURLSessionConfiguration *)configuration{
+    //泄露
+    //解决
     return [NSURLSession _sessionWithConfiguration:configuration delegate:(id<NSURLSessionDelegate>)[[URLSessionProxy alloc]initWithTarget:[[URLSessionDelegate alloc]init]]delegateQueue:[NSOperationQueue mainQueue]];
 }
 +(NSURLSession *)_sessionWithConfiguration:(NSURLSessionConfiguration *)configuration delegate:(id<NSURLSessionDelegate>)delegate delegateQueue:(NSOperationQueue *)queue{
-    return [NSURLSession _sessionWithConfiguration:configuration delegate:(id<NSURLSessionDelegate>)[[URLSessionProxy alloc]initWithTarget:delegate] delegateQueue:queue];
+    //泄露
+    //解决
+    return [NSURLSession _sessionWithConfiguration:configuration delegate:(id<NSURLSessionDelegate>)[[URLSessionProxy alloc]initWithTarget:[[URLSessionDelegate alloc]initWith:delegate]] delegateQueue:queue];
+//    return [NSURLSession _sessionWithConfiguration:configuration delegate:(id<NSURLSessionDelegate>)[[URLSessionProxy alloc]initWithTarget:delegate] delegateQueue:queue];
 }
 //data
 /*
@@ -49,12 +53,11 @@ static id single;
     
     //信息搜集
     RRMessage *info;
-#ifdef __IPHONE_10_0
-    info = [[RRStrongMessage alloc]init];
-#else
-    info =  [[RRMessage alloc]init];
-#endif
-    
+    if(iOS10){
+        info = [[RRStrongMessage alloc]init];
+    }else{
+        info =  [[RRMessage alloc]init];
+    }
     info.date = [NSDate date];
     info.absUrl = request.URL.absoluteString;
     info.type = URLSession;
@@ -71,27 +74,14 @@ static id single;
 }
 
 
-//是否可以发送请求头信息
+//是否可以发送Body信息
 -(BOOL)_can_delegate_task_didSendBodyData{
     URLSessionProxy *proxy =  self.delegate;
     [proxy performSelector:@selector(can_delegate_task_didSendBodyData)];
     return  [self _can_delegate_task_didSendBodyData];
 }
 
-+(void)load{
-//#ifdef __IPHONE_10_0
-//    static dispatch_once_t onceToken;
-//    dispatch_once(&onceToken, ^{
-//        Class clazz = [self class];
-//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sharedSession)), class_getClassMethod(clazz, @selector(_sharedSession)));
-//        
-//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sessionWithConfiguration:)), class_getClassMethod(clazz, @selector(_sessionWithConfiguration:)));
-//        
-//        method_exchangeImplementations(class_getClassMethod(clazz, @selector(sessionWithConfiguration:delegate:delegateQueue:)), class_getClassMethod(clazz, @selector(_sessionWithConfiguration:delegate:delegateQueue:)));
-//        
-//        method_exchangeImplementations(class_getInstanceMethod(clazz, @selector(dataTaskWithRequest:completionHandler:)), class_getInstanceMethod(clazz, @selector(_dataTaskWithRequest:completionHandler:)));
-//    });
-//#else
++(void)rebind{
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         Class clazz = [self class];

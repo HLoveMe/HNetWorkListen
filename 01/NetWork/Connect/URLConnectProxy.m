@@ -86,13 +86,18 @@
     }
 }
 -(BOOL)respondsToSelector:(SEL)aSelector{
-    return [URLConnectProxy is_delegate_selector:aSelector];
+    BOOL flag = [URLConnectProxy is_delegate_selector:aSelector];
+    if(flag){
+        return YES;
+    }
+    return [self._delegate respondsToSelector:aSelector];
 //    //    为了防止没实现协议
 }
 - (nullable NSMethodSignature *)methodSignatureForSelector:(SEL)sel{
     NSMethodSignature *signa = [self._delegate methodSignatureForSelector:sel];
     if(signa){return signa;}
     return  [NSData instanceMethodSignatureForSelector:@selector(base64EncodedDataWithOptions:)];
+    
 }
 static NSArray *names;
 +(BOOL)is_delegate_selector:(SEL)aSel{

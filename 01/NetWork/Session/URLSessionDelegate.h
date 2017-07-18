@@ -10,4 +10,5 @@
 
 @interface URLSessionDelegate : NSObject<NSURLSessionDataDelegate>
 @property(nonatomic,copy)void(^block)(NSData *,NSURLResponse*,NSError *);
+-(instancetype)initWith:(id)origin;
 @end

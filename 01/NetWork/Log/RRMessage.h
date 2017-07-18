@@ -116,10 +116,15 @@ typedef enum {
     第一次收到数据包 时间
  */
 @property(nonatomic,assign)double receive_data_first;
-//最后一次接受数据
+
+/**
+ 最后一次接受数据  时间
+ */
 @property(nonatomic,assign)double receive_data_end;
 /**
     收到数据包次数
+ CFNetwork 次数和 数据大小与每次读取大小有关
+ Connect / Session 和回调有关
  */
 @property(nonatomic,assign)double receive_data_count;
 
