@@ -25,7 +25,7 @@ static Class targetClass;
     return NO;
 }
 - (nullable NSMethodSignature *)methodSignatureForSelector:(SEL)sel{
-    NSLog(@"-:%@",NSStringFromSelector(sel));
+    
     if([self.target respondsToSelector:sel]){
         return [self.target methodSignatureForSelector:sel];
     }
@@ -33,10 +33,7 @@ static Class targetClass;
     return nil;
 }
 - (void)forwardInvocation:(NSInvocation *)invocation{
-    NSLog(@"=:%@",NSStringFromSelector(invocation.selector));
+    
     [invocation invokeWithTarget:self.target];
-    
-    
-    NSLog(@"------");
 }
 @end

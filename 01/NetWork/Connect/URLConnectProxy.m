@@ -53,15 +53,12 @@
         self.info.success = NO;
         typeof(NSClassFromString(@"NSURLError")) err;
         [invocation getArgument:&err atIndex:3];
-        NSLog(@"%@",[(NSError *)err class]);
         self.info.errorReason= [(NSError *)err description];
-        NSLog(@"%@",self.info);
         [[RRNetWorkManager shareWorkManager] hasFinish:self.task];
     }else if([name isEqualToString:@"connectionDidFinishLoading:"]){
         self.info.finish = CFAbsoluteTimeGetCurrent()-self.info.start;
         self.info.start=0;
         self.info.success = YES;
-        NSLog(@"%@",self.info);
         [[RRNetWorkManager shareWorkManager] hasFinish:self.task];
     }else if([name isEqualToString:@"connection:willSendRequest:redirectResponse:"]){
         self.info.redirect_count +=1;
@@ -74,8 +71,6 @@
     //    connectionDidFinishLoading:   请求完毕
     //    connection:didFailWithError:   数据请求错误
     //    @selector(connection:willSendRequest:redirectResponse:)  被重定向
-    
-    NSLog(@"%@",name);
 }
 - (void)forwardInvocation:(NSInvocation *)invocation{
     //    所有实现的回调将会在这里进行消息转发

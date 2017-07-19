@@ -27,7 +27,6 @@
 }
 
 - (void)forwardInvocation:(NSInvocation *)anInvocation {
-    NSLog(@"==%@",NSStringFromSelector(anInvocation.selector));
     //泄露
     @autoreleasepool {
         [anInvocation invokeWithTarget:_stream];
@@ -43,7 +42,6 @@
 }
 - (NSInteger)read:(uint8_t *)buffer maxLength:(NSUInteger)len{
     NSInteger readSize = [_stream read:buffer maxLength:len];
-    NSLog(@"-%d-",readSize);
     self.client.message.data_size += readSize;
     return readSize;
 }

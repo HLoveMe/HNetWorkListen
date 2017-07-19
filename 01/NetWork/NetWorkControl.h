@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "RRHeader.h"
 @interface NetWorkControl : NSObject
-+(void)start;
++(void)startNetControl;
 @end

@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "fishhook.h"
-
+#import "NetWorkControl.h"
 @interface AppDelegate ()
 
 @end
@@ -18,7 +18,10 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-
+    [NetWorkControl startNetControl];
+    [[RRNetWorkManager shareWorkManager] LogHandleBlock:^(RRMessage *message) {
+        NSLog(@"%@",message.dicctionary);
+    }];
     return YES;
 }
 

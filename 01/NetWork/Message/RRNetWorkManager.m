@@ -13,9 +13,9 @@
 @interface RRNetWorkManager()
 @property(nonatomic,strong)NSMutableArray *tasks;
 @property(nonatomic,strong)UIView *stausV;
+@property(nonatomic,copy)RRMBlock block;
 @end
 static id single;
-static NSString * logPath;
 @implementation RRNetWorkManager
 -(NSMutableArray *)tasks{
     if (nil==_tasks) {
@@ -26,29 +26,21 @@ static NSString * logPath;
 +(instancetype)shareWorkManager{
     if(single == nil){
         single = [[RRNetWorkManager alloc]init];
-        [self createPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject] stringByAppendingPathComponent:@"network"]];
     }
     return single;
 }
-+(void)createPath:(NSString *)path{
-    logPath = path;
-    NSFileManager *manager =  [NSFileManager defaultManager];
-    if(![manager fileExistsAtPath:logPath]){
-        [manager createDirectoryAtPath:path withIntermediateDirectories:YES attributes:nil error:nil];
-    }
-}
+
 -(void)addTask:(RRTask *)msg{
     [self.tasks addObject:msg];
 }
 
 -(void)hasFinish:(RRTask *)task{
+    //main
     [self.tasks removeObject:task];
-    NSFileManager *manager =  [NSFileManager defaultManager];
-    [[manager contentsOfDirectoryAtPath:logPath error:nil] enumerateObjectsUsingBlock:^(NSString * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-        
-    }];
-    //保存记录
-//    。。。。
+    if(self.block){
+        self.block(task.msg);
+    }
+   
 }
 -(RRTask *)currentTask{
     NSMutableArray *tas = [NSMutableArray array];
@@ -114,10 +106,8 @@ static NSString * logPath;
 @end
 
 @implementation RRNetWorkManager (log)
-+(void)setLogSavePath:(NSString *)path{
-    [self createPath:path];
-}
-+(NSString *)logPath{
-    return logPath;
+//该框架不做任何数据记录
+-(void)LogHandleBlock:(RRMBlock)block{
+    self.block = block;
 }
 @end

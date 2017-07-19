@@ -15,9 +15,10 @@ typedef enum {
     NetworkStates4G, // 3
     NetworkStatesWIFI  // 4
 }NetWorkStatues;
-
-
 @class RRTask,RRMessage;
+
+typedef void(^RRMBlock)(RRMessage *message);
+
 @interface RRNetWorkManager : NSObject
 +(instancetype)shareWorkManager;
 -(void)addTask:(RRTask *)task;
@@ -30,6 +31,5 @@ typedef enum {
 @end
 
 @interface RRNetWorkManager (log)
-+(void)setLogSavePath:(NSString *)path;
-+(NSString *)logPath;
+-(void)LogHandleBlock:(RRMBlock)block;
 @end

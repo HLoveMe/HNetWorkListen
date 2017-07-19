@@ -88,7 +88,6 @@
             }
             self.info.finish = CFAbsoluteTimeGetCurrent()-self.info.start;
             self.info.start=0;
-            NSLog(@"%@",self.info);
             [[RRNetWorkManager shareWorkManager] hasFinish:self.task];
             
         }else if([name isEqualToString:@"URLSession:dataTask:didReceiveData:"]){
@@ -153,7 +152,6 @@
             }
             self.info.finish = CFAbsoluteTimeGetCurrent()-self.info.start;
             self.info.start=0;
-            NSLog(@"%@",self.info);
             [[RRNetWorkManager shareWorkManager] hasFinish:self.task];
             
         }

@@ -40,7 +40,7 @@ static void MCFReadStreamClientCallBack(CFReadStreamRef stream, CFStreamEventTyp
         client.message.finish = CFAbsoluteTimeGetCurrent()-client.message.start;
         client.message.success=YES;
         client.message.start=0;
-        NSLog(@"%@",client.message);
+        
         [[RRNetWorkManager shareWorkManager] hasFinish:client.task];
     }else if(type == kCFStreamEventNone){
         
@@ -52,7 +52,7 @@ static void MCFReadStreamClientCallBack(CFReadStreamRef stream, CFStreamEventTyp
         CFStringRef method = CFHTTPMessageCopyRequestMethod(message);
         
         RRMessage *info = [[RRMessage alloc]init];
-        info.date = [NSDate date];
+        info.date = [[NSDate date] timeIntervalSince1970];
         info.absUrl = [(__bridge NSURL *)(url) absoluteString];
         info.type = CFNetWork;
         info.method = (__bridge NSString *)(method);
@@ -65,14 +65,12 @@ static void MCFReadStreamClientCallBack(CFReadStreamRef stream, CFStreamEventTyp
         info.start = CFAbsoluteTimeGetCurrent();
         
     }else if(type == kCFStreamEventCanAcceptBytes){
-        NSLog(@"kCFStreamEventCanAcceptBytes");
+        
         
     }else if(type==kCFStreamEventErrorOccurred){
         //失败
         client.message.finish=CFAbsoluteTimeGetCurrent()-client.message.start;
         client.message.success=NO;
-        
-        NSLog(@"%@",client.message);
         client.message.start=0;
         [[RRNetWorkManager shareWorkManager] hasFinish:client.task];
     }

@@ -12,7 +12,7 @@
 #import "NSURLConnection+Aop.h"
 #import "NSURLSessionTask+Aop.h"
 @implementation NetWorkControl
-+(void)start{
++(void)startNetControl{
     [RRDNS rebind];
     [NSURLSession rebind];
     [NSURLSessionTask rebind];

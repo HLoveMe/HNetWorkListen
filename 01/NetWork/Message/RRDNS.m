@@ -67,7 +67,6 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
 
 +(void)rebind{
     if(iOS9_3){
-        
         static dispatch_once_t rebind;
         dispatch_once(&rebind, ^{
             void *lib = dlopen("/usr/lib/system/libsystem_dnssd.dylib", RTLD_NOW);
@@ -79,7 +78,6 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
             dlclose(lib);
         });
     }else{
-//        getaddrinfo
 //        void *lib = dlopen("/usr/lib/system/libsystem_sim_info.dylib", RTLD_NOW);
         origin_getaddrinfo = dlsym(RTLD_DEFAULT, "getaddrinfo");
         rebind_symbols((struct rebinding[1]){
@@ -94,32 +92,32 @@ DNSServiceErrorType my_DNSServiceGetAddrInfo(DNSServiceRef *sdRef, DNSServiceFla
 
 
 @end
-void ABsCDE(DNSServiceRef sdRef,
-           DNSServiceFlags flags,
-           uint32_t interfaceIndex,
-           DNSServiceErrorType errorCode,
-           const char                       *hostname,
-           const struct sockaddr            *address,
-           uint32_t ttl,
-           void *context){
-    
-    char host[1024];
-    char serv[20];
-    getnameinfo(address, sizeof(address), host, sizeof(host), serv, sizeof(serv), NI_NUMERICHOST| NI_NUMERICSERV);
-    
-    NSString *ip = [NSString stringWithUTF8String:host];
-    int B =[[NSString stringWithUTF8String:serv] intValue];
-    NSLog(@"-%@-%d",ip,B);
-    ////    (2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)
-    //    NSError *error;
-    //    NSRegularExpression *ex =  [NSRegularExpression regularExpressionWithPattern:@"((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)" options:NSRegularExpressionCaseInsensitive error:&error];
-    //    if(error==nil){
-    //        NSRange range = [ex rangeOfFirstMatchInString:ip options:NSMatchingReportProgress range:NSMakeRange(0, ip.length)];
-    //        if(range.location != NSNotFound){
-    //                NSLog(@"DNS end %f",CFAbsoluteTimeGetCurrent());
-    //        }
-    //
-    //
-    //
-    //    }
-}
+//void ABsCDE(DNSServiceRef sdRef,
+//           DNSServiceFlags flags,
+//           uint32_t interfaceIndex,
+//           DNSServiceErrorType errorCode,
+//           const char                       *hostname,
+//           const struct sockaddr            *address,
+//           uint32_t ttl,
+//           void *context){
+//    
+//    char host[1024];
+//    char serv[20];
+//    getnameinfo(address, sizeof(address), host, sizeof(host), serv, sizeof(serv), NI_NUMERICHOST| NI_NUMERICSERV);
+//    
+//    NSString *ip = [NSString stringWithUTF8String:host];
+//    int B =[[NSString stringWithUTF8String:serv] intValue];
+//    NSLog(@"-%@-%d",ip,B);
+//    //    (2[0-4]\d|25[0-5]|[01]?\d\d?)\.){3}(2[0-4]\d|25[0-5]|[01]?\d\d?)
+//        NSError *error;
+//        NSRegularExpression *ex =  [NSRegularExpression regularExpressionWithPattern:@"((2[0-4]\\d|25[0-5]|[01]?\\d\\d?)\\.){3}(2[0-4]\\d|25[0-5]|[01]?\\d\\d?)" options:NSRegularExpressionCaseInsensitive error:&error];
+//        if(error==nil){
+//            NSRange range = [ex rangeOfFirstMatchInString:ip options:NSMatchingReportProgress range:NSMakeRange(0, ip.length)];
+//            if(range.location != NSNotFound){
+//                    NSLog(@"DNS end %f",CFAbsoluteTimeGetCurrent());
+//            }
+//    
+//    
+//    
+//        }
+//}

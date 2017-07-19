@@ -22,7 +22,6 @@
 
 - (id)onqueue_strippedMutableRequest{
     //关系
-    NSLog(@"%@-%@",self.currentRequest.URL.absoluteString,[NSThread currentThread]);
     return [self onqueue_strippedMutableRequest];
 }
 +(void)rebind{

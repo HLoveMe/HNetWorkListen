@@ -33,13 +33,6 @@
 		DBBD36361F0A201700C2EA0B /* _1UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBD36351F0A201700C2EA0B /* _1UITests.m */; };
 		DBBD36551F0B237600C2EA0B /* TargetProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DBBD36541F0B237600C2EA0B /* TargetProxy.m */; };
 		DBF5B02C1F0C91EF00CBCD49 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B02B1F0C91EF00CBCD49 /* Student.m */; };
-		DBF5B03F1F0C988000CBCD49 /* HGMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B0311F0C988000CBCD49 /* HGMethod.m */; };
-		DBF5B0401F0C988000CBCD49 /* HGProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B0331F0C988000CBCD49 /* HGProperty.m */; };
-		DBF5B0411F0C988000CBCD49 /* NSObject+HAdd.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B0351F0C988000CBCD49 /* NSObject+HAdd.m */; };
-		DBF5B0421F0C988000CBCD49 /* NSObject+Proxy.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B0371F0C988000CBCD49 /* NSObject+Proxy.m */; };
-		DBF5B0431F0C988000CBCD49 /* HClassDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03A1F0C988000CBCD49 /* HClassDocument.m */; };
-		DBF5B0441F0C988000CBCD49 /* HClassExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03C1F0C988000CBCD49 /* HClassExtension.m */; };
-		DBF5B0451F0C988000CBCD49 /* HInvocation.m in Sources */ = {isa = PBXBuildFile; fileRef = DBF5B03E1F0C988000CBCD49 /* HInvocation.m */; };
 		DBFBEBA81F174ACE00E1D188 /* CFRebind.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFBEBA71F174ACE00E1D188 /* CFRebind.m */; };
 		DBFBEBAB1F174BDC00E1D188 /* CFNetClient.m in Sources */ = {isa = PBXBuildFile; fileRef = DBFBEBAA1F174BDC00E1D188 /* CFNetClient.m */; };
 /* End PBXBuildFile section */
@@ -114,21 +107,6 @@
 		DBBD36541F0B237600C2EA0B /* TargetProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TargetProxy.m; sourceTree = "<group>"; };
 		DBF5B02A1F0C91EF00CBCD49 /* Student.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Student.h; sourceTree = "<group>"; };
 		DBF5B02B1F0C91EF00CBCD49 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
-		DBF5B02E1F0C988000CBCD49 /* HGClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGClass.h; sourceTree = "<group>"; };
-		DBF5B0301F0C988000CBCD49 /* HGMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGMethod.h; sourceTree = "<group>"; };
-		DBF5B0311F0C988000CBCD49 /* HGMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGMethod.m; sourceTree = "<group>"; };
-		DBF5B0321F0C988000CBCD49 /* HGProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HGProperty.h; sourceTree = "<group>"; };
-		DBF5B0331F0C988000CBCD49 /* HGProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HGProperty.m; sourceTree = "<group>"; };
-		DBF5B0341F0C988000CBCD49 /* NSObject+HAdd.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+HAdd.h"; sourceTree = "<group>"; };
-		DBF5B0351F0C988000CBCD49 /* NSObject+HAdd.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+HAdd.m"; sourceTree = "<group>"; };
-		DBF5B0361F0C988000CBCD49 /* NSObject+Proxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+Proxy.h"; sourceTree = "<group>"; };
-		DBF5B0371F0C988000CBCD49 /* NSObject+Proxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Proxy.m"; sourceTree = "<group>"; };
-		DBF5B0391F0C988000CBCD49 /* HClassDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HClassDocument.h; sourceTree = "<group>"; };
-		DBF5B03A1F0C988000CBCD49 /* HClassDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HClassDocument.m; sourceTree = "<group>"; };
-		DBF5B03B1F0C988000CBCD49 /* HClassExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HClassExtension.h; sourceTree = "<group>"; };
-		DBF5B03C1F0C988000CBCD49 /* HClassExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HClassExtension.m; sourceTree = "<group>"; };
-		DBF5B03D1F0C988000CBCD49 /* HInvocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HInvocation.h; sourceTree = "<group>"; };
-		DBF5B03E1F0C988000CBCD49 /* HInvocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HInvocation.m; sourceTree = "<group>"; };
 		DBFBEBA61F174ACE00E1D188 /* CFRebind.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFRebind.h; sourceTree = "<group>"; };
 		DBFBEBA71F174ACE00E1D188 /* CFRebind.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CFRebind.m; sourceTree = "<group>"; };
 		DBFBEBA91F174BDC00E1D188 /* CFNetClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CFNetClient.h; sourceTree = "<group>"; };
@@ -275,7 +253,6 @@
 			isa = PBXGroup;
 			children = (
 				DB8A8C321F1310560005EA83 /* NetWork */,
-				DBF5B02D1F0C988000CBCD49 /* HGClass */,
 				DBBD36131F0A201700C2EA0B /* AppDelegate.h */,
 				DBBD36141F0A201700C2EA0B /* AppDelegate.mm */,
 				DB8A8C9D1F161DF80005EA83 /* a.png */,
@@ -318,44 +295,6 @@
 				DBBD36371F0A201700C2EA0B /* Info.plist */,
 			);
 			path = 01UITests;
-			sourceTree = "<group>";
-		};
-		DBF5B02D1F0C988000CBCD49 /* HGClass */ = {
-			isa = PBXGroup;
-			children = (
-				DBF5B02E1F0C988000CBCD49 /* HGClass.h */,
-				DBF5B02F1F0C988000CBCD49 /* HGClass_Extension */,
-				DBF5B0381F0C988000CBCD49 /* HGClassTool */,
-			);
-			path = HGClass;
-			sourceTree = "<group>";
-		};
-		DBF5B02F1F0C988000CBCD49 /* HGClass_Extension */ = {
-			isa = PBXGroup;
-			children = (
-				DBF5B0301F0C988000CBCD49 /* HGMethod.h */,
-				DBF5B0311F0C988000CBCD49 /* HGMethod.m */,
-				DBF5B0321F0C988000CBCD49 /* HGProperty.h */,
-				DBF5B0331F0C988000CBCD49 /* HGProperty.m */,
-				DBF5B0341F0C988000CBCD49 /* NSObject+HAdd.h */,
-				DBF5B0351F0C988000CBCD49 /* NSObject+HAdd.m */,
-				DBF5B0361F0C988000CBCD49 /* NSObject+Proxy.h */,
-				DBF5B0371F0C988000CBCD49 /* NSObject+Proxy.m */,
-			);
-			path = HGClass_Extension;
-			sourceTree = "<group>";
-		};
-		DBF5B0381F0C988000CBCD49 /* HGClassTool */ = {
-			isa = PBXGroup;
-			children = (
-				DBF5B0391F0C988000CBCD49 /* HClassDocument.h */,
-				DBF5B03A1F0C988000CBCD49 /* HClassDocument.m */,
-				DBF5B03B1F0C988000CBCD49 /* HClassExtension.h */,
-				DBF5B03C1F0C988000CBCD49 /* HClassExtension.m */,
-				DBF5B03D1F0C988000CBCD49 /* HInvocation.h */,
-				DBF5B03E1F0C988000CBCD49 /* HInvocation.m */,
-			);
-			path = HGClassTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -496,14 +435,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB8A8C461F1310560005EA83 /* NSURLSession+Aop.m in Sources */,
-				DBF5B0421F0C988000CBCD49 /* NSObject+Proxy.m in Sources */,
-				DBF5B0441F0C988000CBCD49 /* HClassExtension.m in Sources */,
 				DB2C3AB11F1E1443005E56D6 /* RRDNS.m in Sources */,
 				DBBD36181F0A201700C2EA0B /* ViewController.mm in Sources */,
 				DB8A8C451F1310560005EA83 /* URLConnectProxy.m in Sources */,
 				DB2C3AB21F1E1443005E56D6 /* RRMessage.m in Sources */,
 				DB8A8C491F1310560005EA83 /* URLSessionProxy.m in Sources */,
-				DBF5B0401F0C988000CBCD49 /* HGProperty.m in Sources */,
 				DBFBEBAB1F174BDC00E1D188 /* CFNetClient.m in Sources */,
 				DBBD36151F0A201700C2EA0B /* AppDelegate.mm in Sources */,
 				DB8A8C481F1310560005EA83 /* URLSessionDelegate.m in Sources */,
@@ -515,13 +451,9 @@
 				DB2C3AB31F1E1443005E56D6 /* RRNetWorkManager.m in Sources */,
 				DB8A8C471F1310560005EA83 /* NSURLSessionTask+Aop.m in Sources */,
 				DB8A8C991F1611A80005EA83 /* InputStreamProxy.m in Sources */,
-				DBF5B0431F0C988000CBCD49 /* HClassDocument.m in Sources */,
 				DBFBEBA81F174ACE00E1D188 /* CFRebind.m in Sources */,
 				DB2C3ABB1F1E14DF005E56D6 /* fishhook.c in Sources */,
-				DBF5B0411F0C988000CBCD49 /* NSObject+HAdd.m in Sources */,
 				DB8A8C431F1310560005EA83 /* NSURLConnection+Aop.m in Sources */,
-				DBF5B03F1F0C988000CBCD49 /* HGMethod.m in Sources */,
-				DBF5B0451F0C988000CBCD49 /* HInvocation.m in Sources */,
 				DB8A8C441F1310560005EA83 /* URLConnectDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

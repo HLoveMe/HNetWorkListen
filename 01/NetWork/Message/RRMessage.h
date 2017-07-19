@@ -39,9 +39,9 @@ typedef enum {
  */
 @property(nonatomic,assign)NetWorkStatues status;
 /**
-    请求创建的 时间
+    请求创建的 时间 1970时间戳
  */
-@property(nonatomic,strong)NSDate *date;
+@property(nonatomic,assign)double date;
 
 /**
  请求的网址
@@ -141,8 +141,21 @@ typedef enum {
  */
 @property(nonatomic,assign)double finish;
 
+
+
+//得到该对象的 键值对
+-(NSMutableDictionary *)dicctionary;
 @end
 
+@interface RRMessage (log)
+
+/**
+ 得到该对象的键值对 字典 转化的数据对象
+
+ @return 数据
+ */
+-(NSData *)data;
+@end
 
 //该类仅仅在ios10 以上  并且为Session请求时才会使用
 

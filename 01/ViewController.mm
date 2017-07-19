@@ -9,9 +9,8 @@
 #import "ViewController.h"
 #import "TargetProxy.h"
 #import "Student.h"
-#import "HGClass.h"
 #import "InputStreamProxy.h"
-#import "NetWorkControl.h"
+
 #import <resolv.h>
 #include <arpa/inet.h>
 #import <objc/runtime.h>
@@ -120,9 +119,6 @@ void myCallBack(CFReadStreamRef stream,CFStreamEventType type,void *clientCallBa
         NSURLRequest *request = [NSURLRequest requestWithURL:url];
         NSURLConnection *connect = [[NSURLConnection alloc]initWithRequest:request delegate:self];
         _con = connect;
-        [HClassDocument scanInstanceMethod:[connect class] _super:YES];
-        [HClassDocument scanProperty:[connect class] _super:YES];
-        
 //        _con=connect;
 //        [NSURLConnection sendAsynchronousRequest:request queue:[NSOperationQueue mainQueue] completionHandler:^(NSURLResponse * _Nullable response, NSData * _Nullable data, NSError * _Nullable connectionError) {
 //            NSLog(@"-finish-size:%lu",data.length);
@@ -167,7 +163,7 @@ void myCallBack(CFReadStreamRef stream,CFStreamEventType type,void *clientCallBa
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [NetWorkControl start];
+    
     
     
 //    [self cfnetwork];

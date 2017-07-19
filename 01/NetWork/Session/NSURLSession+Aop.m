@@ -58,7 +58,7 @@ static id single;
     }else{
         info =  [[RRMessage alloc]init];
     }
-    info.date = [NSDate date];
+    info.date = [[NSDate date] timeIntervalSince1970];
     info.absUrl = request.URL.absoluteString;
     info.type = URLSession;
     info.method = request.HTTPMethod;

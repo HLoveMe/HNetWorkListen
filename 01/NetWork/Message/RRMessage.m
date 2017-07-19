@@ -8,7 +8,6 @@
 
 #import "RRMessage.h"
 #import <objc/runtime.h>
-#import "HClassDocument.h"
 @implementation RRMessage
 -(instancetype)init{
     if (self=[super init]) {
@@ -25,17 +24,11 @@
     }
     return self;
 }
--(BOOL)isEqual:(id)object{
-    if([object isKindOfClass:[self class]]){
-        return  [[(RRMessage *)object absUrl] isEqual:self.absUrl];
-    }
-    return NO;
-}
--(NSString *)description{
+-(NSMutableDictionary *)dicctionary{
     NSMutableDictionary *dic = [NSMutableDictionary dictionary];
     @autoreleasepool {
         unsigned int count ;
-        Ivar *ivars = class_copyIvarList([self class], &count);
+        Ivar *ivars = class_copyIvarList([RRMessage class], &count);
         for (int i=0; i<count; i++) {
             NSString *name = [[NSString alloc]initWithUTF8String:ivar_getName(ivars[i])];
             @try {
@@ -51,6 +44,12 @@
     return dic;
 }
 @end
+@implementation RRMessage (log)
+-(NSData *)data{
+    return [NSJSONSerialization dataWithJSONObject:[self dicctionary] options:NSJSONWritingPrettyPrinted error:nil];
+}
+@end
+
 
 #ifdef __IPHONE_10_0
 @implementation RRStrongMessage
@@ -63,8 +62,8 @@
     }
     return self;
 }
--(NSString *)description{
-    NSMutableDictionary *dic = [NSMutableDictionary dictionary];
+-(NSMutableDictionary *)dicctionary{
+    NSMutableDictionary *dic = [super dicctionary];
     @autoreleasepool {
         unsigned int count ;
         Ivar *ivars = class_copyIvarList([self class], &count);
@@ -82,6 +81,7 @@
     }
     return dic;
 }
+
 @end
 #else
 #endif
